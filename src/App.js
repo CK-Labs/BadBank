@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
+import Home from './Components/Home';
+import CustomNavBar from './Components/NavBar';
+import CreateAccount from './Components/CreateAccount';
+import Deposit from './Components/Deposit';
+import Withdraw from './Components/Withdraw';
+import AllData from './Components/AllData';
+import { UserContext } from './Components/Context';
 import './App.css';
+import { Routes, Route, BrowserRouter} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+      <div className="container">
+          <CustomNavBar />
+          {/* <div className="container d-flex centerContent"> */}
+              <Routes>
+                <Route exact path="/" element={<Home/>} />
+                <Route path="/Home" element={<Home/>} />
+                <Route path="/CreateAccount/" element={<CreateAccount/>} />
+                <Route path="/Deposit/" element={<Deposit/>} />
+                <Route path="/Withdraw/" element={<Withdraw/>} />
+                <Route path="/AllData/" element={<AllData/>} />
+              </Routes>
+            {/* </div> */}
+      </div>
+    </>
   );
 }
 
 export default App;
+
